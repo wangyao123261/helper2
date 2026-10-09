@@ -1,0 +1,16 @@
+<view class="screen">
+  <nav-bar mode="sub" title="修改个人信息" />
+  <view class="pad stack">
+    <view class="card block">
+      <text class="f-label">姓名</text>
+      <input class="f-input" value="{{name}}" bindinput="onName" />
+      <text class="f-label mt">角色</text>
+      <picker mode="selector" range="{{roles}}" value="{{roleIndex}}" bindchange="onRole">
+        <view class="f-input">{{roles[roleIndex]}}</view>
+      </picker>
+      <text class="f-label mt">联系方式</text>
+      <input class="f-input" value="{{phone}}" bindinput="onPhone" />
+      <view class="btn btn-primary mt-lg" bindtap="save">保存</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/records/records",
+    "pages/logs/logs",
+    "pages/profile/profile",
+    "pages/record-detail/record-detail",
+    "pages/add-record/add-record",
+    "pages/log-detail/log-detail",
+    "pages/today-log/today-log",
+    "pages/companies/companies",
+    "pages/problems/problems",
+    "pages/my-records/my-records",
+    "pages/industry/industry",
+    "pages/profile-edit/profile-edit",
+    "pages/password/password",
+    "pages/platform/platform"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#165DFF",
+    "backgroundColor": "#F5F7FA",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#9ca3af",
+    "selectedColor": "#165DFF",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/records/records",
+        "text": "督查记录"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "工作日志"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "usingComponents": {
+    "nav-bar": "/components/nav-bar/nav-bar",
+    "photo-grid": "/components/photo-grid/photo-grid"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

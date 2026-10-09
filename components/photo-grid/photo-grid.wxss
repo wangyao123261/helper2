@@ -1,0 +1,51 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12rpx;
+  margin-top: 12rpx;
+}
+
+.tile {
+  position: relative;
+  height: 150rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  border: 1rpx solid #e5e7eb;
+  background: #eef2f6;
+}
+
+.img,
+.ph {
+  width: 100%;
+  height: 100%;
+}
+
+.ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: 600;
+}
+
+.ph-gate { background: #4a6fa5; }
+.ph-camera { background: #66727e; }
+.ph-truck { background: #d64545; }
+.ph-loader { background: #d97706; }
+.ph-ledger { background: #8a7355; }
+
+.cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 16rpx;
+  line-height: 32rpx;
+  padding: 0 8rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

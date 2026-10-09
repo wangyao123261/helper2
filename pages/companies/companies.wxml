@@ -1,0 +1,23 @@
+<view class="screen">
+  <nav-bar mode="sub" title="督查企业" extra="{{countText}}" />
+  <scroll-view class="body" scroll-y>
+    <view class="pad stack">
+      <view class="card rec" wx:for="{{list}}" wx:key="company" data-id="{{item.id}}" bindtap="openRecord">
+        <view class="between">
+          <view class="name">{{item.company}}</view>
+          <text class="tag {{item.tagClass}}">{{item.etype}}</text>
+        </view>
+        <view class="meta">
+          <text>{{item.province}}·{{item.city}}</text>
+          <text>{{item.industry}}</text>
+          <text>最近督查 {{item.latest}}</text>
+        </view>
+        <view class="chips mt-sm">
+          <text class="tag tag-gray">督查 {{item.count}} 次</text>
+          <text class="tag tag-red" wx:if="{{item.problems}}">问题 {{item.problems}} 项</text>
+          <text class="tag tag-green" wx:else>未发现问题</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

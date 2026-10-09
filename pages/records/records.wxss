@@ -1,0 +1,12 @@
+.filter-box {
+  padding: 24rpx 32rpx 8rpx;
+  flex-shrink: 0;
+}
+
+.rec {
+  padding: 28rpx;
+}
+
+.mt-sm {
+  margin-top: 16rpx;
+}

@@ -1,0 +1,50 @@
+<view class="screen has-tab">
+  <nav-bar mode="brand" />
+  <scroll-view class="body" scroll-y>
+    <view class="pad stack">
+      <view class="card hero">
+        <view class="row">
+          <view class="avatar">{{initial}}</view>
+          <view>
+            <view class="hero-name">{{profile.name}}</view>
+            <view class="hero-tags">
+              <text class="pill">{{profile.role}}</text>
+              <text class="pill">{{profile.org}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="hero-stats">
+          <view class="hero-stat" bindtap="goMyRecords">
+            <view class="hero-num">{{stats.records}}</view>
+            <view class="hero-label">我的督查记录</view>
+          </view>
+          <view class="hero-stat" bindtap="goProblems">
+            <view class="hero-num">{{stats.problems}}</view>
+            <view class="hero-label">发现问题</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="card menu">
+        <view class="menu-item" bindtap="goMyRecords">
+          <text>我的工作记录</text>
+          <text class="arrow">›</text>
+        </view>
+        <view class="menu-item" bindtap="goEdit">
+          <text>修改个人信息</text>
+          <text class="arrow">›</text>
+        </view>
+        <view class="menu-item" bindtap="goPassword">
+          <text>修改密码</text>
+          <text class="arrow">›</text>
+        </view>
+        <view class="menu-item" bindtap="goPlatform">
+          <text>平台信息</text>
+          <text class="arrow">›</text>
+        </view>
+        <view class="menu-item logout" bindtap="logout">退出登录</view>
+      </view>
+      <view class="ver">清洁运输监督帮扶小程序 V1.0.0</view>
+    </view>
+  </scroll-view>
+</view>

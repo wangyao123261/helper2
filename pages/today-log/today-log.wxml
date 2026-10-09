@@ -1,0 +1,37 @@
+<view class="screen">
+  <nav-bar mode="sub" title="今日工作日志" />
+  <scroll-view class="body" scroll-y>
+    <view class="pad stack">
+      <view class="card head">
+        <view class="doc">今 日 工 作 日 志</view>
+        <view class="date">{{dateText}} · 督查企业 {{count}} 家 · 发现问题 {{problemCount}} 项</view>
+      </view>
+      <block wx:if="{{list.length}}">
+        <view class="card rec" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="openRecord">
+          <view class="between">
+            <view class="name">{{item.orderLabel}}、{{item.company}}</view>
+            <text class="tag tag-blue">{{item.etype}}</text>
+          </view>
+          <view class="meta">
+            <text>{{item.province}}·{{item.city}}</text>
+            <text>{{item.industry}}</text>
+          </view>
+          <view class="mt-sm"><text class="tag {{item.problemTag}}">{{item.problemText}}</text></view>
+        </view>
+      </block>
+      <view class="card empty-card" wx:else>
+        <view class="empty">
+          <text class="empty-ico">空</text>
+          今日暂无督查记录
+          <view class="btn btn-primary empty-btn" bindtap="goAdd">＋ 新增督查记录</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="footer-bar">
+    <view class="btn btn-line" bindtap="goBack">返回</view>
+    <view class="btn btn-green" bindtap="goAdd">新增督查</view>
+    <view class="btn btn-primary" data-kind="word" bindtap="exportFile">Word日报</view>
+    <view class="btn btn-orange" data-kind="ppt" bindtap="exportFile">PPT日志</view>
+  </view>
+</view>

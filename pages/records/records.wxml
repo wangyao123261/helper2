@@ -1,0 +1,41 @@
+<view class="screen has-tab">
+  <nav-bar mode="brand" />
+  <view class="filter-box">
+    <view class="search-wrap">
+      <text class="search-ico">搜</text>
+      <input class="f-input search-input" placeholder="搜索企业名称、省（市、区）、地市" placeholder-class="placeholder" value="{{keyword}}" bindinput="onSearch" />
+    </view>
+    <view class="chips">
+      <text class="chip {{filter === 'all' ? 'active' : ''}}" data-f="all" bindtap="setFilter">全部</text>
+      <text class="chip {{filter === 'has' ? 'active' : ''}}" data-f="has" bindtap="setFilter">有问题</text>
+      <text class="chip {{filter === 'none' ? 'active' : ''}}" data-f="none" bindtap="setFilter">无问题</text>
+    </view>
+  </view>
+  <scroll-view class="body" scroll-y>
+    <view class="pad stack" wx:if="{{list.length}}">
+      <view class="card rec" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="openRecord">
+        <view class="between">
+          <view class="name">{{item.company}}</view>
+          <text class="tag {{item.tagClass}}">{{item.etype}}</text>
+        </view>
+        <view class="meta">
+          <text>{{item.province}}·{{item.city}}</text>
+          <text>{{item.industry}}</text>
+          <text>{{item.date}}</text>
+        </view>
+        <view class="mt-sm"><text class="tag {{item.problemTag}}">{{item.problemText}}</text></view>
+        <view class="foot">
+          <text>{{item.contact || '—'}} {{item.phone || ''}}</text>
+          <text class="link">查看详情 ›</text>
+        </view>
+      </view>
+    </view>
+    <view class="empty" wx:else>
+      <text class="empty-ico">空</text>
+      未找到匹配的督查记录
+    </view>
+  </scroll-view>
+  <view class="dock">
+    <view class="btn btn-primary" bindtap="goAdd">＋ 增加记录</view>
+  </view>
+</view>

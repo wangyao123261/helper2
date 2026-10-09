@@ -1,0 +1,54 @@
+<view class="screen">
+  <nav-bar mode="sub" title="督查记录详情" extra="编辑" bind:extra="onEdit" />
+  <scroll-view class="body" scroll-y wx:if="{{record}}">
+    <view class="pad stack">
+      <view class="card block">
+        <view class="between">
+          <view>
+            <view class="title">{{record.company}}</view>
+            <view class="sub">{{record.date}} · 记录编号 {{record.id}}</view>
+          </view>
+          <text class="tag tag-blue">{{record.etype}}</text>
+        </view>
+        <view class="kv"><text class="k">省（市、区） / 地市</text><text class="v">{{record.province}} · {{record.city}}</text></view>
+        <view class="kv"><text class="k">行业类别</text><text class="v">{{record.industry}}</text></view>
+        <view class="kv"><text class="k">联系人 / 联系方式</text><text class="v">{{record.contact || '—'}}　{{record.phone || ''}}</text></view>
+      </view>
+
+      <view class="card block">
+        <view class="sec-title"><view class="dot-blue"></view>运输概况</view>
+        <view class="kv"><text class="k">货运大门及通道</text><text class="v">{{record.gates}} 个货运大门 · {{record.channels}} 个货运通道</text></view>
+        <view class="kv"><text class="k">门禁及视频监控</text><text class="v"><text class="tag {{record.monitorTag}}">{{record.monitor}}</text></text></view>
+        <view class="kv"><text class="k">产能 / 产量</text><text class="v">{{record.capacity || '—'}} 万吨 / {{record.output || '—'}} 万吨</text></view>
+        <view class="kv"><text class="k">主要进出厂物料</text><text class="v">{{record.materials || '—'}}</text></view>
+        <view class="kv"><text class="k">主要原料来源地</text><text class="v">{{record.matFrom || '—'}}</text></view>
+        <view class="kv"><text class="k">主要产品运送地</text><text class="v">{{record.matTo || '—'}}</text></view>
+        <view class="kv"><text class="k">运输方式</text><text class="v">{{record.transport || '—'}}</text></view>
+        <view class="kv">
+          <text class="k">清洁运输比例</text>
+          <view class="v ratio">
+            <view class="progress"><view class="progress-in" style="width: {{record.cleanWidth}};"></view></view>
+            <text class="ratio-num">{{record.cleanRatio}}%</text>
+          </view>
+        </view>
+        <view class="kv"><text class="k">计算方式</text><text class="v">{{record.calcMethod || '—'}}</text></view>
+        <view class="kv"><text class="k">厂内运输车辆数量</text><text class="v">{{record.vehicles}} 辆</text></view>
+        <view class="kv"><text class="k">非道路移动机械</text><text class="v">{{record.machinery || '—'}}</text></view>
+      </view>
+
+      <view class="card block">
+        <view class="sec-title"><view class="dot-red"></view>主要问题（{{record.problems.length}} 项）</view>
+        <view wx:if="{{record.problemsView.length}}">
+          <view class="issue" wx:for="{{record.problemsView}}" wx:key="no">
+            <view class="issue-cat">（{{item.indexLabel}}）{{item.cat}}</view>
+            <view class="issue-sub">{{item.no}}、{{item.sub}}</view>
+            <view class="issue-desc">{{item.desc}}</view>
+            <photo-grid photos="{{item.photos}}" />
+          </view>
+        </view>
+        <view class="ok" wx:else>本次检查未发现问题</view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="empty" wx:else>未找到该督查记录</view>
+</view>

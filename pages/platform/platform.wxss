@@ -1,0 +1,11 @@
+.row-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 24rpx;
+  padding: 24rpx 32rpx;
+  border-bottom: 1rpx solid #f3f4f6;
+  font-size: 26rpx;
+}
+.row-line:last-child { border-bottom: none; }
+.k { color: #6b7280; flex-shrink: 0; }
+.v { color: #1f2937; font-weight: 500; text-align: right; }

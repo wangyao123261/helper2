@@ -1,0 +1,27 @@
+<view class="screen">
+  <nav-bar mode="sub" title="我的工作记录" extra="{{countText}}" />
+  <scroll-view class="body" scroll-y>
+    <view class="pad stack" wx:if="{{list.length}}">
+      <view class="card rec" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="openRecord">
+        <view class="between">
+          <view class="name">{{item.company}}</view>
+          <text class="tag {{item.tagClass}}">{{item.etype}}</text>
+        </view>
+        <view class="meta">
+          <text>{{item.province}}·{{item.city}}</text>
+          <text>{{item.industry}}</text>
+          <text>{{item.date}}</text>
+        </view>
+        <view class="mt-sm"><text class="tag {{item.problemTag}}">{{item.problemText}}</text></view>
+        <view class="foot">
+          <text>{{item.contact || '—'}} {{item.phone || ''}}</text>
+          <text class="link">查看详情 ›</text>
+        </view>
+      </view>
+    </view>
+    <view class="empty" wx:else>
+      <text class="empty-ico">空</text>
+      暂无督查记录
+    </view>
+  </scroll-view>
+</view>

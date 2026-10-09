@@ -1,0 +1,27 @@
+.filters {
+  background: #fff;
+  padding: 20rpx 32rpx;
+  border-bottom: 1rpx solid #f3f4f6;
+}
+.range {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-top: 16rpx;
+}
+.date-box {
+  min-width: 180rpx;
+  border: 1rpx solid #e5e7eb;
+  border-radius: 12rpx;
+  padding: 8rpx 16rpx;
+  font-size: 22rpx;
+  color: #4b5563;
+  background: #fff;
+}
+.to { font-size: 22rpx; color: #9ca3af; }
+.rec { padding: 28rpx; }
+.when { font-size: 18rpx; color: #9ca3af; margin-left: 16rpx; }
+.issue { margin-top: 12rpx; padding-left: 16rpx; border-left: 4rpx solid #fecaca; }
+.issue-cat { font-size: 22rpx; font-weight: 600; color: #f53f3f; }
+.issue-sub { margin-top: 6rpx; font-size: 22rpx; color: #374151; }
+.issue-desc { margin-top: 6rpx; font-size: 20rpx; color: #6b7280; line-height: 1.6; }

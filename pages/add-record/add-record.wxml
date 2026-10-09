@@ -1,0 +1,149 @@
+<view class="screen">
+  <nav-bar mode="sub" title="{{navTitle}}" />
+  <scroll-view class="body" scroll-y>
+    <view class="pad form-pad stack">
+      <view class="card block">
+        <view class="sec-title"><text class="badge-no">1</text>企业基本信息</view>
+        <view class="grid-2 mt">
+          <view>
+            <text class="f-label">省（市、区）<text class="req">*</text></text>
+            <picker mode="selector" range="{{provinceOptions}}" value="{{provinceIndex + 1}}" bindchange="onProvince">
+              <view class="f-input {{err.province ? 'err' : ''}} {{provinceIndex < 0 ? 'placeholder' : ''}}">{{provinceIndex < 0 ? '请选择' : provinces[provinceIndex]}}</view>
+            </picker>
+          </view>
+          <view>
+            <text class="f-label">地市<text class="req">*</text></text>
+            <picker mode="selector" range="{{cities}}" value="{{cityIndex}}" disabled="{{!cities.length}}" bindchange="onCity">
+              <view class="f-input {{err.city ? 'err' : ''}} {{!cities.length ? 'placeholder' : ''}}">{{cities.length ? cities[cityIndex] : '请先选择省份'}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="mt">
+          <text class="f-label">企业名称<text class="req">*</text></text>
+          <input class="f-input {{err.company ? 'err' : ''}}" placeholder="请输入企业全称" placeholder-class="placeholder" value="{{company}}" bindinput="onCompany" />
+        </view>
+        <view class="mt">
+          <text class="f-label">企业类型<text class="req">*</text>（绩效分级 / 超低排放 / 其他）</text>
+          <view class="chips {{err.etype ? 'etype-err' : ''}}">
+            <text class="chip {{etype === item ? 'active' : ''}}" wx:for="{{etypes}}" wx:key="*this" data-v="{{item}}" bindtap="pickEtype">{{item}}</text>
+          </view>
+          <input wx:if="{{etype === '其他'}}" class="f-input mt" placeholder="请自行填入企业类型说明" placeholder-class="placeholder" value="{{etypeNote}}" bindinput="onNote" />
+        </view>
+        <view class="mt">
+          <text class="f-label">行业类别<text class="req">*</text>（最新绩效分级行业）</text>
+          <view class="f-input between {{err.industry ? 'err' : ''}}" bindtap="goIndustry">
+            <text class="{{industry ? '' : 'placeholder'}}">{{industry || '点击选择行业类别'}}</text>
+            <text class="arrow">›</text>
+          </view>
+        </view>
+        <view class="grid-2 mt">
+          <view>
+            <text class="f-label">联系人</text>
+            <input class="f-input" placeholder="请输入" placeholder-class="placeholder" value="{{contact}}" bindinput="onContact" />
+          </view>
+          <view>
+            <text class="f-label">联系方式（电话）</text>
+            <input class="f-input" type="number" placeholder="请输入" placeholder-class="placeholder" value="{{phone}}" bindinput="onPhone" />
+          </view>
+        </view>
+      </view>
+
+      <view class="card block">
+        <view class="sec-title"><text class="badge-no">2</text>企业运输概况</view>
+        <view class="grid-3 mt">
+          <view>
+            <text class="f-label">货运大门数（个）</text>
+            <input class="f-input" type="number" placeholder="如 2" placeholder-class="placeholder" value="{{gates}}" bindinput="onGates" />
+          </view>
+          <view>
+            <text class="f-label">货运通道数（个）</text>
+            <input class="f-input" type="number" placeholder="如 4" placeholder-class="placeholder" value="{{channels}}" bindinput="onChannels" />
+          </view>
+          <view>
+            <text class="f-label">门禁及视频监控</text>
+            <picker mode="selector" range="{{monitors}}" value="{{monitorIndex}}" bindchange="onMonitor">
+              <view class="f-input">{{monitors[monitorIndex]}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="grid-2 mt">
+          <view>
+            <text class="f-label">产能（万吨）</text>
+            <input class="f-input" placeholder="如 500" placeholder-class="placeholder" value="{{capacity}}" bindinput="onCapacity" />
+          </view>
+          <view>
+            <text class="f-label">产量（万吨）</text>
+            <input class="f-input" placeholder="如 462" placeholder-class="placeholder" value="{{output}}" bindinput="onOutput" />
+          </view>
+        </view>
+        <view class="mt">
+          <text class="f-label">主要进出厂物料</text>
+          <textarea class="f-input area" placeholder="如：铁矿石、焦炭、烧结矿、钢材" placeholder-class="placeholder" value="{{materials}}" bindinput="onMaterials" />
+        </view>
+        <view class="grid-2 mt">
+          <view>
+            <text class="f-label">主要原料来源地</text>
+            <input class="f-input" placeholder="如：唐山市" placeholder-class="placeholder" value="{{matFrom}}" bindinput="onMatFrom" />
+          </view>
+          <view>
+            <text class="f-label">主要产品运送地</text>
+            <input class="f-input" placeholder="如：天津市" placeholder-class="placeholder" value="{{matTo}}" bindinput="onMatTo" />
+          </view>
+        </view>
+        <view class="mt">
+          <text class="f-label">运输方式</text>
+          <textarea class="f-input area" placeholder="如：铁矿石采用铁路、钢材采用公路" placeholder-class="placeholder" value="{{transport}}" bindinput="onTransport" />
+        </view>
+        <view class="mt">
+          <text class="f-label">清洁运输比例（%）</text>
+          <input class="f-input {{err.clean ? 'err' : ''}}" type="digit" placeholder="如 72" placeholder-class="placeholder" value="{{cleanRatio}}" bindinput="onClean" />
+        </view>
+        <view class="mt">
+          <text class="f-label">计算方式（时间范围、物料范围、具体运量等）</text>
+          <textarea class="f-input area" placeholder="如：2026年1—8月铁路运量与零排放车运量" placeholder-class="placeholder" value="{{calcMethod}}" bindinput="onCalc" />
+        </view>
+        <view class="mt">
+          <text class="f-label">厂内运输车辆数量（辆）</text>
+          <input class="f-input" type="number" placeholder="如 28" placeholder-class="placeholder" value="{{vehicles}}" bindinput="onVehicles" />
+        </view>
+        <view class="mt">
+          <text class="f-label">厂内非道路移动机械种类、排放阶段及数量</text>
+          <textarea class="f-input area" placeholder="如：3台电动叉车、2台国四装载机" placeholder-class="placeholder" value="{{machinery}}" bindinput="onMachinery" />
+        </view>
+      </view>
+
+      <view class="card block">
+        <view class="between">
+          <view class="sec-title"><text class="badge-no">3</text>主要问题</view>
+          <text class="chip active" bindtap="addProblem">＋ 添加问题</text>
+        </view>
+        <view class="problem" wx:for="{{problems}}" wx:key="label">
+          <view class="between">
+            <text class="p-title">问题 {{item.label}}</text>
+            <text class="del" data-index="{{index}}" catchtap="removeProblem">删除</text>
+          </view>
+          <picker mode="selector" range="{{catOptions}}" value="{{item.catIndex + 1}}" data-index="{{index}}" bindchange="onCat">
+            <view class="f-input {{item.catIndex < 0 ? 'placeholder' : ''}}">{{item.catIndex < 0 ? '请选择问题大类' : cats[item.catIndex]}}</view>
+          </picker>
+          <picker mode="selector" range="{{item.subOptions}}" value="{{item.subIndex + 1}}" disabled="{{!item.subs.length}}" data-index="{{index}}" bindchange="onSub">
+            <view class="f-input mt-sm {{item.subIndex < 0 ? 'placeholder' : ''}}">{{item.subIndex < 0 ? (item.catIndex < 0 ? '请先选择问题大类' : '请选择问题小类') : item.subs[item.subIndex]}}</view>
+          </picker>
+          <textarea class="f-input area mt-sm" placeholder="详细说明（自行输入）" placeholder-class="placeholder" value="{{item.desc}}" data-index="{{index}}" bindinput="onDesc" />
+          <view class="upload" data-index="{{index}}" bindtap="choosePhoto">拍摄 / 上传附图</view>
+          <view class="photos" wx:if="{{item.photos.length}}">
+            <view class="shot" wx:for="{{item.photos}}" wx:for-item="photo" wx:for-index="photoIndex" wx:key="photoIndex">
+              <image wx:if="{{photo.url}}" src="{{photo.url}}" mode="aspectFill" />
+              <view wx:else class="shot-ph">示意图</view>
+              <view class="shot-x" data-index="{{index}}" data-photo="{{photoIndex}}" catchtap="removePhoto">×</view>
+            </view>
+          </view>
+        </view>
+        <view class="hint" wx:if="{{!problems.length}}">未添加问题条目（本次检查未发现问题可不添加）</view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="footer-bar">
+    <view class="btn btn-line" bindtap="onBack">取消</view>
+    <view class="btn btn-primary" bindtap="save">保存记录</view>
+  </view>
+</view>

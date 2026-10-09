@@ -1,0 +1,11 @@
+<view class="screen">
+  <nav-bar mode="sub" title="选择行业类别" />
+  <view class="search-box">
+    <input class="f-input" placeholder="搜索行业…" placeholder-class="placeholder" value="{{keyword}}" bindinput="onSearch" />
+    <view class="tip">共 {{total}} 类 · 最新绩效分级行业</view>
+  </view>
+  <scroll-view class="body" scroll-y>
+    <view class="item" wx:for="{{list}}" wx:key="*this" data-name="{{item}}" bindtap="pick">{{item}}</view>
+    <view class="empty" wx:if="{{!list.length}}">未找到匹配行业</view>
+  </scroll-view>
+</view>

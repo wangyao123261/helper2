@@ -1,0 +1,38 @@
+<view class="screen">
+  <nav-bar mode="sub" title="发现问题" extra="{{countText}}" />
+  <view class="filters">
+    <view class="chips">
+      <text class="chip {{filter === 'all' ? 'active' : ''}}" data-f="all" bindtap="setFilter">全部</text>
+      <text class="chip {{filter === '7d' ? 'active' : ''}}" data-f="7d" bindtap="setFilter">近7天</text>
+      <text class="chip {{filter === '30d' ? 'active' : ''}}" data-f="30d" bindtap="setFilter">近30天</text>
+    </view>
+    <view class="range">
+      <picker mode="date" value="{{from}}" bindchange="onFrom">
+        <view class="date-box">{{from || '开始日期'}}</view>
+      </picker>
+      <text class="to">至</text>
+      <picker mode="date" value="{{to}}" bindchange="onTo">
+        <view class="date-box">{{to || '结束日期'}}</view>
+      </picker>
+    </view>
+  </view>
+  <scroll-view class="body" scroll-y>
+    <view class="pad stack" wx:if="{{list.length}}">
+      <view class="card rec" wx:for="{{list}}" wx:key="id" data-id="{{item.recordId}}" bindtap="openRecord">
+        <view class="between">
+          <view class="name">{{item.company}}</view>
+          <text class="when">{{item.date}}</text>
+        </view>
+        <view class="issue">
+          <view class="issue-cat">（{{item.indexLabel}}）{{item.catShort}}</view>
+          <view class="issue-sub">{{item.no}}、{{item.sub}}</view>
+          <view class="issue-desc">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="empty" wx:else>
+      <text class="empty-ico">✓</text>
+      该时间段内暂无发现问题
+    </view>
+  </scroll-view>
+</view>

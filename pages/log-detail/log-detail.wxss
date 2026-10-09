@@ -1,0 +1,16 @@
+.nav-actions { display: flex; gap: 20rpx; color: #165dff; font-size: 24rpx; }
+.head { padding: 32rpx; text-align: center; }
+.doc { font-size: 28rpx; font-weight: 700; letter-spacing: 8rpx; }
+.date { margin-top: 12rpx; font-size: 22rpx; color: #6b7280; }
+.intro { font-size: 22rpx; color: #4b5563; line-height: 1.8; padding: 0 8rpx; }
+.block { padding: 28rpx; }
+.co { font-size: 26rpx; font-weight: 700; margin-bottom: 8rpx; }
+.para { font-size: 22rpx; color: #4b5563; line-height: 1.8; }
+.found { margin-top: 16rpx; font-size: 22rpx; font-weight: 600; }
+.issue { margin-top: 16rpx; padding-left: 16rpx; border-left: 4rpx solid #fecaca; }
+.issue-cat { font-size: 22rpx; font-weight: 600; color: #f53f3f; }
+.issue-sub { margin-top: 6rpx; font-size: 22rpx; color: #374151; }
+.issue-desc { margin-top: 6rpx; font-size: 22rpx; color: #6b7280; line-height: 1.7; }
+.attach { margin-top: 8rpx; font-size: 18rpx; color: #9ca3af; }
+.ok { margin-top: 16rpx; font-size: 22rpx; color: #00b42a; }
+.export-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20rpx; padding-bottom: 24rpx; }

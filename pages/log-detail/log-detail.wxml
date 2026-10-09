@@ -1,0 +1,38 @@
+<view class="screen">
+  <nav-bar mode="sub" title="工作日志详情">
+    <view slot="right" class="nav-actions">
+      <text data-kind="word" bindtap="exportFile">Word</text>
+      <text data-kind="ppt" bindtap="exportFile">PPT</text>
+    </view>
+  </nav-bar>
+  <scroll-view class="body" scroll-y wx:if="{{log}}">
+    <view class="pad stack">
+      <view class="card head">
+        <view class="doc">工 作 信 息</view>
+        <view class="date">{{log.shortText}}</view>
+      </view>
+      <view class="intro">{{log.intro}}</view>
+      <view class="card block" wx:for="{{log.records}}" wx:key="id">
+        <view class="co">{{item.orderLabel}}、{{item.company}}（{{item.etype}}）</view>
+        <view class="para">企业厂区有 {{item.gates}} 个货运大门 {{item.channels}} 个进出通道，{{item.monitorText}}门禁及视频监控系统。</view>
+        <view class="para">进出厂物料主要包括{{item.materials}}等，运输方式为：{{item.transport}}，清洁运输比例为 {{item.cleanRatio}}%，主要计算方式：{{item.calcMethod}}。</view>
+        <view class="para">企业厂内运输车辆 {{item.vehicles}} 辆，厂内非道路移动机械：{{item.machinery}}。</view>
+        <block wx:if="{{item.problemsView.length}}">
+          <view class="found">调研发现企业存在如下问题：</view>
+          <view class="issue" wx:for="{{item.problemsView}}" wx:for-item="problem" wx:key="no">
+            <view class="issue-cat">（{{problem.indexLabel}}）{{problem.cat}}</view>
+            <view class="issue-sub">{{problem.no}}、{{problem.sub}}</view>
+            <view class="issue-desc">{{problem.desc}}</view>
+            <photo-grid photos="{{problem.photos}}" />
+            <view class="attach">附佐证照片</view>
+          </view>
+        </block>
+        <view class="ok" wx:else>本次检查未发现问题</view>
+      </view>
+      <view class="export-row">
+        <view class="btn btn-primary" data-kind="word" bindtap="exportFile">导出 Word 日报</view>
+        <view class="btn btn-orange" data-kind="ppt" bindtap="exportFile">导出 PPT 工作日志</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

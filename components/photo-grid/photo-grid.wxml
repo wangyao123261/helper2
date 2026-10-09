@@ -1,0 +1,9 @@
+<view class="grid" wx:if="{{photos.length}}">
+  <view class="tile" wx:for="{{photos}}" wx:key="index" bindtap="preview" data-index="{{index}}">
+    <image wx:if="{{item.url}}" class="img" src="{{item.url}}" mode="aspectFill" />
+    <view wx:else class="ph ph-{{item.ph || 'gate'}}">
+      <text>{{names[item.ph] || '佐证'}}</text>
+    </view>
+    <text class="cap">{{item.cap || '佐证照片'}}</text>
+  </view>
+</view>

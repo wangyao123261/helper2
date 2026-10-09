@@ -1,0 +1,128 @@
+.hello {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.hello-sub {
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: #9ca3af;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 24rpx;
+}
+
+.stat-ico {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+
+.stat-ico.blue { background: #eff6ff; color: #165dff; }
+.stat-ico.green { background: #f0fdf4; color: #00b42a; }
+.stat-ico.orange { background: #fff7ed; color: #d97706; }
+.stat-ico.red { background: #fef2f2; color: #f53f3f; }
+
+.stat-num {
+  font-size: 36rpx;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-label {
+  margin-top: 8rpx;
+  font-size: 20rpx;
+  color: #9ca3af;
+}
+
+.block {
+  padding: 28rpx;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-top: 16rpx;
+}
+
+.bar-label {
+  width: 208rpx;
+  flex-shrink: 0;
+  text-align: right;
+  font-size: 20rpx;
+  color: #6b7280;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bar-label.short {
+  width: 144rpx;
+}
+
+.bar-num {
+  width: 28rpx;
+  font-size: 20rpx;
+  font-weight: 600;
+  color: #374151;
+}
+
+.recent {
+  margin-top: 16rpx;
+  padding: 16rpx;
+  border-radius: 16rpx;
+  border: 1rpx solid #f3f4f6;
+  background: rgba(249, 250, 251, 0.5);
+}
+
+.avatar {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 12rpx;
+  background: #eff6ff;
+  color: #165dff;
+  font-size: 22rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+.recent-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.recent-name {
+  font-size: 22rpx;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recent-sub {
+  margin-top: 4rpx;
+  font-size: 18rpx;
+  color: #9ca3af;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mt-sm {
+  margin-top: 12rpx;
+}

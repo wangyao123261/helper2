@@ -2,7 +2,7 @@
   <nav-bar mode="brand" />
   <view class="filter-box">
     <view class="search-wrap">
-      <text class="search-ico">搜</text>
+      <text class="search-ico iconfont icon-search"></text>
       <input class="f-input search-input" placeholder="搜索企业名称、省（市、区）、地市" placeholder-class="placeholder" value="{{keyword}}" bindinput="onSearch" />
     </view>
     <view class="chips">
@@ -19,13 +19,13 @@
           <text class="tag {{item.tagClass}}">{{item.etype}}</text>
         </view>
         <view class="meta">
-          <text>{{item.province}}·{{item.city}}</text>
-          <text>{{item.industry}}</text>
-          <text>{{item.date}}</text>
+          <text><text class="iconfont icon-dingwei info-icon"></text>{{item.location}}</text>
+          <text><text class="iconfont icon-hangye info-icon"></text>{{item.industry}}</text>
+          <text><text class="iconfont icon-riqi info-icon"></text>{{item.date}}</text>
         </view>
-        <view class="mt-sm"><text class="tag {{item.problemTag}}">{{item.problemText}}</text></view>
+        <view class="mt-sm"><text class="tag {{item.problemTag}}"><text wx:if="{{item.problems.length > 0}}" class="iconfont icon-jinggao problem-icon"></text>{{item.problemText}}</text></view>
         <view class="foot">
-          <text>{{item.contact || '—'}} {{item.phone || ''}}</text>
+          <text><text wx:if="{{item.contact}}" class="iconfont icon-user info-icon"></text>{{item.contact || '—'}} {{item.phone || ''}}</text>
           <text class="link">查看详情 ›</text>
         </view>
       </view>

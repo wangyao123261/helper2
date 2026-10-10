@@ -8,7 +8,9 @@ Component({
     extra: { type: String, value: '' }
   },
   data: {
-    statusBarHeight: 20
+    statusBarHeight: 20,
+    sideWidth: 84,
+    capsuleGap: 6
   },
   lifetimes: {
     attached() {
@@ -28,7 +30,17 @@ Component({
   methods: {
     applyBar() {
       const light = this.data.mode === 'brand';
-      this.setData({ statusBarHeight: (app.globalData && app.globalData.statusBarHeight) || 20 });
+      const data = { statusBarHeight: (app.globalData && app.globalData.statusBarHeight) || 20 };
+      try {
+        const menu = wx.getMenuButtonBoundingClientRect();
+        const windowInfo = wx.getWindowInfo ? wx.getWindowInfo() : wx.getSystemInfoSync();
+        const capsuleGap = Math.max(6, windowInfo.windowWidth - menu.left + 8);
+        data.capsuleGap = capsuleGap;
+        data.sideWidth = Math.max(84, capsuleGap + 36);
+      } catch (e) {
+        // Keep the default layout if the menu-button metrics are unavailable.
+      }
+      this.setData(data);
       wx.setNavigationBarColor({
         frontColor: light ? '#ffffff' : '#000000',
         backgroundColor: light ? '#165DFF' : '#ffffff',

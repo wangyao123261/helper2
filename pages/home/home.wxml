@@ -17,28 +17,28 @@
 
       <view class="grid-2">
         <view class="card stat" bindtap="goRecords">
-          <view class="stat-ico blue">记</view>
+          <view class="stat-ico blue iconfont icon-list"></view>
           <view>
             <view class="stat-num">{{stats.records}}</view>
             <view class="stat-label">督查记录</view>
           </view>
         </view>
         <view class="card stat" bindtap="goCompanies">
-          <view class="stat-ico green">企</view>
+          <view class="stat-ico green iconfont icon-hangye"></view>
           <view>
             <view class="stat-num">{{stats.companies}}</view>
             <view class="stat-label">督查企业</view>
           </view>
         </view>
         <view class="card stat" bindtap="goLogs">
-          <view class="stat-ico orange">志</view>
+          <view class="stat-ico orange iconfont icon-book"></view>
           <view>
             <view class="stat-num">{{stats.logs}}</view>
             <view class="stat-label">工作日志</view>
           </view>
         </view>
         <view class="card stat" bindtap="goProblems">
-          <view class="stat-ico red">问</view>
+          <view class="stat-ico red iconfont icon-jinggao"></view>
           <view>
             <view class="stat-num">{{stats.problems}}</view>
             <view class="stat-label">发现问题</view>

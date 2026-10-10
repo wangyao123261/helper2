@@ -16,7 +16,7 @@
       </view>
 
       <view class="card block">
-        <view class="sec-title"><view class="dot-blue"></view>运输概况</view>
+        <view class="sec-title"><text class="iconfont icon-huoche section-icon truck-icon"></text>运输概况</view>
         <view class="kv"><text class="k">货运大门及通道</text><text class="v">{{record.gates}} 个货运大门 · {{record.channels}} 个货运通道</text></view>
         <view class="kv"><text class="k">门禁及视频监控</text><text class="v"><text class="tag {{record.monitorTag}}">{{record.monitor}}</text></text></view>
         <view class="kv"><text class="k">产能 / 产量</text><text class="v">{{record.capacity || '—'}} 万吨 / {{record.output || '—'}} 万吨</text></view>
@@ -37,7 +37,7 @@
       </view>
 
       <view class="card block">
-        <view class="sec-title"><view class="dot-red"></view>主要问题（{{record.problems.length}} 项）</view>
+        <view class="sec-title"><text class="iconfont icon-jinggao section-icon alert-icon"></text>主要问题（{{record.problems.length}} 项）</view>
         <view wx:if="{{record.problemsView.length}}">
           <view class="issue" wx:for="{{record.problemsView}}" wx:key="no">
             <view class="issue-cat">（{{item.indexLabel}}）{{item.cat}}</view>

@@ -1,3 +1,4 @@
+@import "../../styles/iconfont.wxss";
 .filter-box {
   padding: 24rpx 32rpx 8rpx;
   flex-shrink: 0;
@@ -9,4 +10,16 @@
 
 .mt-sm {
   margin-top: 16rpx;
+}
+
+.problem-icon {
+  font-size: 26rpx;
+  margin-right: 8rpx;
+}
+
+.info-icon {
+  color: #9ca3af;
+  font-size: 24rpx;
+  margin-right: 8rpx;
+  vertical-align: middle;
 }

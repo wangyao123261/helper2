@@ -114,7 +114,7 @@ Page({
         subOptions: withSubOptions(subs),
         subIndex,
         desc: item.desc || '',
-        photos: item.photos || []
+        photos: (item.photos || []).filter((photo) => !(photo.ph === 'ledger' && photo.cap === '佐证照片' && !photo.url))
       };
     });
     this.setData({
@@ -330,7 +330,7 @@ Page({
         cat,
         sub,
         desc: (item.desc || '').trim(),
-        photos: photos.length ? photos : [{ ph: 'ledger', cap: '佐证照片' }]
+        photos
       };
     }))).then((problems) => {
       const etype = d.selectedEtypes.map((type) => {

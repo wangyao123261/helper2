@@ -5,18 +5,18 @@
       <view class="brand-title">清洁运输监督帮扶</view>
       <view class="brand-sub">机动车中心</view>
     </view>
-    <view class="bell" bindtap="onBell">
+    <!-- <view class="bell" bindtap="onBell">
       <view class="bell-dot"></view>
-    </view>
+    </view> -->
   </view>
 </view>
 <view class="subnav" wx:else style="padding-top: {{statusBarHeight}}px;">
   <view class="sub-inner">
-    <view class="side" bindtap="onBack">
+    <view class="side" style="width: {{sideWidth}}px;" bindtap="onBack">
       <view class="back"></view>
     </view>
     <view class="sub-title">{{title}}</view>
-    <view class="side right">
+    <view class="side right" style="width: {{sideWidth}}px; padding-right: {{capsuleGap}}px;">
       <slot name="right"></slot>
       <text wx:if="{{extra}}" class="extra" bindtap="onExtra">{{extra}}</text>
     </view>

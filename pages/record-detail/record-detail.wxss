@@ -1,4 +1,8 @@
+@import "../../styles/iconfont.wxss";
 .block { padding: 32rpx; }
+.section-icon { font-size: 30rpx; }
+.truck-icon { color: #165dff; }
+.alert-icon { color: #f53f3f; }
 .title { font-size: 32rpx; font-weight: 700; }
 .sub { margin-top: 8rpx; font-size: 26rpx; color: #9ca3af; }
 .ratio { display: flex; align-items: center; gap: 16rpx; }

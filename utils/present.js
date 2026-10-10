@@ -17,6 +17,7 @@ function decorateRecord(record) {
   return Object.assign({}, record, problem, {
     tagClass: etypeTag(record.etype),
     initial: (record.province || '').slice(0, 1),
+    location: record.province === record.city ? record.province : `${record.province}·${record.city}`,
     monitorTag: record.monitor === '已安装' ? 'tag-green' : 'tag-red',
     monitorText: record.monitor === '已安装' ? '安装有' : '未安装',
     cleanWidth: ratio + '%',
@@ -24,7 +25,7 @@ function decorateRecord(record) {
       indexLabel: cnNum(index),
       no: index + 1,
       catShort: shortCat(item.cat),
-      photos: item.photos || []
+      photos: (item.photos || []).filter((photo) => !(photo.ph === 'ledger' && photo.cap === '佐证照片' && !photo.url))
     }))
   });
 }

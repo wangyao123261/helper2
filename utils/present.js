@@ -57,7 +57,12 @@ function decorateLog(log, map) {
 function etypeBars(records) {
   const counts = ETYPES.map((etype) => ({
     t: etype.replace('绩效分级', ''),
-    n: records.filter((item) => (etype === '其他' ? String(item.etype).indexOf('其他') === 0 : item.etype === etype)).length
+    n: records.filter((item) => {
+      const types = String(item.etype || '').split('、');
+      return etype === '其他'
+        ? types.some((type) => type.indexOf('其他') === 0)
+        : types.indexOf(etype) >= 0;
+    }).length
   })).filter((item) => item.n > 0);
   const max = Math.max.apply(null, counts.map((item) => item.n).concat([1]));
   return counts.map((item) => Object.assign({}, item, { width: (item.n / max) * 100 + '%' }));

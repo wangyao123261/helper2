@@ -1,10 +1,10 @@
 .block { padding: 32rpx; }
-.title { font-size: 28rpx; font-weight: 700; }
-.sub { margin-top: 8rpx; font-size: 20rpx; color: #9ca3af; }
+.title { font-size: 32rpx; font-weight: 700; }
+.sub { margin-top: 8rpx; font-size: 26rpx; color: #9ca3af; }
 .ratio { display: flex; align-items: center; gap: 16rpx; }
 .ratio-num { color: #165dff; font-weight: 600; flex-shrink: 0; }
 .issue { margin-top: 24rpx; padding-left: 16rpx; border-left: 4rpx solid #fca5a5; }
-.issue-cat { font-size: 22rpx; font-weight: 600; color: #f53f3f; }
-.issue-sub { margin-top: 8rpx; font-size: 22rpx; color: #374151; }
-.issue-desc { margin-top: 8rpx; font-size: 22rpx; color: #6b7280; line-height: 1.7; }
-.ok { margin-top: 20rpx; font-size: 22rpx; color: #00b42a; }
+.issue-cat { font-size: 28rpx; font-weight: 600; color: #f53f3f; }
+.issue-sub { margin-top: 8rpx; font-size: 28rpx; color: #374151; }
+.issue-desc { margin-top: 8rpx; font-size: 28rpx; color: #6b7280; line-height: 1.7; }
+.ok { margin-top: 20rpx; font-size: 28rpx; color: #00b42a; }

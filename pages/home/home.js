@@ -1,5 +1,5 @@
 const store = require('../../utils/store');
-const { TODAY } = require('../../utils/constants');
+const { getToday } = require('../../utils/constants');
 const { weekdayChip } = require('../../utils/format');
 const { decorateRecord, sortByDate, etypeBars, problemBars } = require('../../utils/present');
 
@@ -21,7 +21,7 @@ Page({
     const recent = sortByDate(records).slice(0, 3).map(decorateRecord);
     this.setData({
       name: profile.name,
-      dateChip: weekdayChip(TODAY),
+      dateChip: weekdayChip(getToday()),
       stats: store.stats(),
       etypeBars: etypeBars(records),
       problemBars: problemBars(records),

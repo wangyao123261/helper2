@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 5241495 */
+  src: 
+       url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAT4AAsAAAAACjQAAASpAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHFQGYACDXgqGaIVxATYCJAMcCxAABCAFhGcHahvpCBEVpLGQ/UiwcYuL9TlyUivIm+CBvrN61Z7uMZhZAZVdJweAmTt/wQkAk+YcKRI+whRl7cijL9xTIX0a/f/3qv6Xk388gOtmC0Vtzo2hYOIBCsayO9Yg7Km3WjHtUrt26XVKC9RTEIBNKc0ond2DkwSvW7xtA/FoiEkBUaVYt3rlYizTiFZBElgao+mRmi7OQAflpPIKcDp+vfiRcmGBgq4irjW6omsZT/gif1igSr8E9RPcw/XAegXQARUoXJhZHKt2StQgWYiKXfQ3NSaBYCwUDF+kr8N3lu+PmfwfFvj9JHvFuCBYOsHY5j88FQUdhAFRBgI+K2WAL9IWRqoO0CNAdRbo0UD1B3Chwkw+Fwr8sKAJHQDT3RoMRIBIBTGFuhKV+jWcRcFAxAbEhwckhghNCwkJDRTvFxqaOe3IWx989uHbheM9X+ju8+xAzzlo8twpz2NXP+59VD6y1XWebWcxReE0w7021e3y8qOazgV5Tmn9eUK4z5/teczdArvSb3sm35EHI+senHrWcbw97zc8LMR7LkX2vsDeY/K88w7y3ffo2asF6vNs3dnpyb0h8QK06fNzznccPdCbd2PShWiu87JHj+u7gz2PLY18sxPifTR+w4JAz02J4iDvjfKGSdvg6cgXVvPnJKRlIG9w2UmiE9ptC/fKZDjv9NBtQnVF3+QuWHmzN2/5jVfkRk4q8pYHNh3PSXz8703/PJ74jnGhUWqrXsb7nVMXm0ZYaVhZmDw6NNJhPG6eMPdbN1mxiY//U1sXpe9XZn6TvNGs/LTTWGpeYFxamXemcXLsitgWb1UaRhrL+19ZMFI0VFg0WDzCvMhi35ZxPWP/K7szJvVDvxdHMq+4Qjaov8Vo0Stxvezu697LmX179naftae3Z29fdd6SwYFluaOU33WzS/56/pR0Sc5/PGNVxBmrotXBRN+1dyVdMfF18phLJ6g+Q74QQ8xPUZ9GYd3r7dMhnUmdIW48uePjlzy6sTMERoNfjC1+f5E39HhYXdjxUG/YTvTvPNeWuvwcIpe52DkLKL1DPvCM84sz3z7qmecTProkoWtT+omK2or773fWmhUntqd3JdzyEgcQl1IvUz4Av1SfUN0AaoFyMzr3KU8WES4t8x/UFFX+oj/DnxfsfWBhSONvlqMB4Pt1sIkImznd8IupaCz8Ieebp6WC368pZghM7bv12OpUFE+WwsTFPxZXAFt6wQ/ecD4bTh3RuBwEFhERKJgkgIpFOtLwfNBxKAcDiyawKaDreIcINqEitAAgm8MKCEK5ERSCeRBUQnkeafj7oBPNDBiE8h/YuETQ2RyyhaY9OtQBHTU/0i1PwtIEnPUGGYfa5cVecF5DhIri0nTmigmuj338W5YhCBKOR7ro18MwMM2ODdqQqhDmKitZUfQpacvj4uhQB3TU/Ei3PAl3eEh+vxtkHGrXEL3szqsCMjsVad4AXZVTo4ELWezfsgxBqJuE45Eu1I5BJpnm4lUGbUhVh/hcZWSYaKpMp1ePN3kKsBHvaApFqEITujCEKSyMVZFbhYOEw/RXPMmvntZexa1dY/QvoosbXDPEg1ccf0g0w2IBAAAA') format('woff2'),
+       url('iconfont.woff?t=1791597501772') format('woff'),
+       url('iconfont.ttf?t=1791597501772') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 32rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before {
+  content: "\e72a";
+}
+
+.icon-book:before {
+  content: "\e6f7";
+}
+
+.icon-shujiyuedu:before {
+  content: "\e692";
+}
+
+.icon-list:before {
+  content: "\ea5e";
+}
+
+.icon-home:before {
+  content: "\e614";
+}
+.icon-huoche:before {
+  content: "\e643";
+}

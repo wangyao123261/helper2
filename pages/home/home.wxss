@@ -1,12 +1,12 @@
 .hello {
-  font-size: 32rpx;
+  font-size: 34rpx;
   font-weight: 700;
   color: #1f2937;
 }
 
 .hello-sub {
   margin-top: 6rpx;
-  font-size: 22rpx;
+  font-size: 28rpx;
   color: #9ca3af;
 }
 
@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26rpx;
+  font-size: 32rpx;
   font-weight: 700;
 }
 
@@ -34,14 +34,14 @@
 .stat-ico.red { background: #fef2f2; color: #f53f3f; }
 
 .stat-num {
-  font-size: 36rpx;
+  font-size: 38rpx;
   font-weight: 700;
   line-height: 1;
 }
 
 .stat-label {
   margin-top: 8rpx;
-  font-size: 20rpx;
+  font-size: 26rpx;
   color: #9ca3af;
 }
 
@@ -60,7 +60,7 @@
   width: 208rpx;
   flex-shrink: 0;
   text-align: right;
-  font-size: 20rpx;
+  font-size: 26rpx;
   color: #6b7280;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -73,7 +73,7 @@
 
 .bar-num {
   width: 28rpx;
-  font-size: 20rpx;
+  font-size: 26rpx;
   font-weight: 600;
   color: #374151;
 }
@@ -92,7 +92,7 @@
   border-radius: 12rpx;
   background: #eff6ff;
   color: #165dff;
-  font-size: 22rpx;
+  font-size: 28rpx;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -107,7 +107,7 @@
 }
 
 .recent-name {
-  font-size: 22rpx;
+  font-size: 28rpx;
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -116,7 +116,7 @@
 
 .recent-sub {
   margin-top: 4rpx;
-  font-size: 18rpx;
+  font-size: 24rpx;
   color: #9ca3af;
   overflow: hidden;
   text-overflow: ellipsis;

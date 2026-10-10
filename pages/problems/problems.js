@@ -1,5 +1,5 @@
 const store = require('../../utils/store');
-const { TODAY } = require('../../utils/constants');
+const { getToday } = require('../../utils/constants');
 const { cnNum, shortCat, addDays } = require('../../utils/format');
 
 Page({
@@ -31,14 +31,15 @@ Page({
       });
     });
     items.sort((a, b) => (a.date < b.date ? 1 : -1));
+    const today = getToday();
     const from = this.data.from;
     const to = this.data.to;
     const filter = this.data.filter;
     const shown = items.filter((item) => {
       if (from && item.date < from) return false;
       if (to && item.date > to) return false;
-      if (filter === '7d' && item.date < addDays(TODAY, -6)) return false;
-      if (filter === '30d' && item.date < addDays(TODAY, -29)) return false;
+      if (filter === '7d' && (item.date < addDays(today, -6) || item.date > today)) return false;
+      if (filter === '30d' && (item.date < addDays(today, -29) || item.date > today)) return false;
       return true;
     });
     this.setData({ list: shown, countText: '共 ' + shown.length + ' 项' });

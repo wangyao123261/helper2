@@ -1,5 +1,4 @@
 const mock = require('./mock');
-const { TODAY } = require('./constants');
 
 const KEY = {
   ready: 'cc_ready_v1',
@@ -114,7 +113,6 @@ function stats() {
 }
 
 module.exports = {
-  TODAY,
   ensure,
   getRecords,
   saveRecords,

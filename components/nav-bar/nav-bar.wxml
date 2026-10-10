@@ -1,6 +1,6 @@
 <view class="brand" wx:if="{{mode === 'brand'}}" style="padding-top: {{statusBarHeight}}px;">
   <view class="brand-inner">
-    <view class="logo">运</view>
+    <view class="logo iconfont icon-huoche"></view>
     <view class="brand-text">
       <view class="brand-title">清洁运输监督帮扶</view>
       <view class="brand-sub">机动车中心</view>

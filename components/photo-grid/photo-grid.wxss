@@ -25,7 +25,7 @@
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 20rpx;
+  font-size: 26rpx;
   font-weight: 600;
 }
 
@@ -42,7 +42,7 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
-  font-size: 16rpx;
+  font-size: 24rpx;
   line-height: 32rpx;
   padding: 0 8rpx;
   white-space: nowrap;

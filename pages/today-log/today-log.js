@@ -1,5 +1,5 @@
 const store = require('../../utils/store');
-const { TODAY } = require('../../utils/constants');
+const { getToday } = require('../../utils/constants');
 const { decorateRecord, sortByDate } = require('../../utils/present');
 const { fmtShort, cnNum, toast } = require('../../utils/format');
 
@@ -11,12 +11,13 @@ Page({
     list: []
   },
   onShow() {
-    const list = sortByDate(store.getRecords().filter((item) => item.date === TODAY)).map((item, index) => {
+    const today = getToday();
+    const list = sortByDate(store.getRecords().filter((item) => item.date === today)).map((item, index) => {
       return Object.assign(decorateRecord(item), { orderLabel: cnNum(index) });
     });
     const problemCount = list.reduce((sum, item) => sum + item.problems.length, 0);
     this.setData({
-      dateText: fmtShort(TODAY),
+      dateText: fmtShort(today),
       count: list.length,
       problemCount,
       list
@@ -34,7 +35,7 @@ Page({
   },
   exportFile(e) {
     const kind = e.currentTarget.dataset.kind;
-    const name = fmtShort(TODAY) + ' 工作日志';
+    const name = fmtShort(getToday()) + ' 工作日志';
     toast(kind === 'word' ? '已模拟导出《' + name + '》Word' : '已模拟导出《' + name + '》PPT');
   }
 });

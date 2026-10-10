@@ -13,13 +13,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40rpx;
+  font-size: 42rpx;
   font-weight: 700;
   margin-right: 24rpx;
 }
 
 .hero-name {
-  font-size: 32rpx;
+  font-size: 34rpx;
   font-weight: 700;
 }
 
@@ -33,7 +33,7 @@
 .pill {
   background: rgba(255, 255, 255, 0.2);
   color: #fff;
-  font-size: 20rpx;
+  font-size: 26rpx;
   padding: 4rpx 16rpx;
   border-radius: 8rpx;
 }
@@ -53,13 +53,13 @@
 }
 
 .hero-num {
-  font-size: 32rpx;
+  font-size: 34rpx;
   font-weight: 700;
 }
 
 .hero-label {
   margin-top: 6rpx;
-  font-size: 20rpx;
+  font-size: 26rpx;
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -69,7 +69,7 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1rpx solid #f3f4f6;
-  font-size: 26rpx;
+  font-size: 32rpx;
   color: #374151;
 }
 
@@ -79,7 +79,7 @@
 
 .arrow {
   color: #d1d5db;
-  font-size: 32rpx;
+  font-size: 34rpx;
 }
 
 .logout {
@@ -91,5 +91,5 @@
 .ver {
   text-align: center;
   color: #d1d5db;
-  font-size: 20rpx;
+  font-size: 26rpx;
 }

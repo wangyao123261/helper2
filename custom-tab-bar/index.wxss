@@ -1,3 +1,4 @@
+@import "../styles/iconfont.wxss";
 .tabbar {
   position: fixed;
   left: 0;
@@ -19,7 +20,7 @@
   gap: 4rpx;
   height: 100rpx;
   color: #9ca3af;
-  font-size: 20rpx;
+  font-size: 26rpx;
 }
 
 .tab.active {
@@ -33,75 +34,5 @@
   box-sizing: border-box;
 }
 
-.ico-home {
-  border: 3rpx solid currentColor;
-  border-radius: 4rpx;
-  margin-top: 8rpx;
-  height: 26rpx;
-}
 
-.ico-home::before {
-  content: "";
-  position: absolute;
-  left: 4rpx;
-  top: -10rpx;
-  width: 18rpx;
-  height: 18rpx;
-  border-left: 3rpx solid currentColor;
-  border-top: 3rpx solid currentColor;
-  transform: rotate(45deg);
-}
 
-.ico-list {
-  border: 3rpx solid currentColor;
-  border-radius: 6rpx;
-}
-
-.ico-list::before,
-.ico-list::after {
-  content: "";
-  position: absolute;
-  left: 6rpx;
-  right: 6rpx;
-  height: 3rpx;
-  background: currentColor;
-}
-
-.ico-list::before { top: 10rpx; }
-.ico-list::after { top: 20rpx; }
-
-.ico-book {
-  border: 3rpx solid currentColor;
-  border-radius: 4rpx 8rpx 8rpx 4rpx;
-}
-
-.ico-book::before {
-  content: "";
-  position: absolute;
-  left: 14rpx;
-  top: 2rpx;
-  bottom: 2rpx;
-  width: 3rpx;
-  background: currentColor;
-}
-
-.ico-user {
-  width: 16rpx;
-  height: 16rpx;
-  border: 3rpx solid currentColor;
-  border-radius: 50%;
-  margin-top: 0;
-}
-
-.ico-user::after {
-  content: "";
-  position: absolute;
-  left: -8rpx;
-  top: 18rpx;
-  width: 28rpx;
-  height: 14rpx;
-  border: 3rpx solid currentColor;
-  border-bottom: none;
-  border-radius: 16rpx 16rpx 0 0;
-  box-sizing: border-box;
-}

@@ -6,7 +6,7 @@
     data-index="{{index}}"
     bindtap="switchTab"
   >
-    <view class="ico ico-{{item.icon}}"></view>
+    <text class="ico iconfont icon-{{item.icon}}"></text>
     <text>{{item.text}}</text>
   </view>
 </view>

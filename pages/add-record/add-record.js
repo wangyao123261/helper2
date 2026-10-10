@@ -1,5 +1,5 @@
 const store = require('../../utils/store');
-const { TODAY, PROVINCES, CITIES, ETYPES, PROBLEM_MAP, CAT_ORDER } = require('../../utils/constants');
+const { getToday, PROVINCES, CITIES, ETYPES, PROBLEM_MAP, CAT_ORDER } = require('../../utils/constants');
 const { cnNum, toast } = require('../../utils/format');
 
 function withSubOptions(subs) {
@@ -8,6 +8,35 @@ function withSubOptions(subs) {
 
 function blankProblem() {
   return { label: '一', catIndex: -1, subs: [], subOptions: ['请选择问题小类'], subIndex: -1, desc: '', photos: [] };
+}
+
+function isPerformanceType(type) {
+  return type.indexOf('绩效分级') === 0;
+}
+
+function buildEtypeOptions(selected) {
+  return ETYPES.map((value) => ({ value, selected: selected.indexOf(value) >= 0 }));
+}
+
+function parseEtypes(value) {
+  const selected = [];
+  let etypeNote = '';
+  String(value || '').split('、').forEach((type) => {
+    if (type.indexOf('其他') === 0) {
+      selected.push('其他');
+      const match = type.match(/^其他（(.*)）$/);
+      if (match) etypeNote = match[1];
+    } else if (ETYPES.indexOf(type) >= 0) {
+      selected.push(type);
+    }
+  });
+  const performanceType = selected.find(isPerformanceType);
+  const unique = Array.from(new Set(selected.filter((type) => !isPerformanceType(type))));
+  if (performanceType) unique.push(performanceType);
+  return {
+    selected: ETYPES.filter((type) => unique.indexOf(type) >= 0),
+    etypeNote
+  };
 }
 
 function persistPhotos(photos) {
@@ -35,8 +64,9 @@ Page({
     cities: [],
     cityIndex: 0,
     company: '',
-    etypes: ETYPES,
-    etype: '',
+    etypeOptions: buildEtypeOptions([]),
+    selectedEtypes: [],
+    showEtypeNote: false,
     etypeNote: '',
     industry: '',
     contact: '',
@@ -72,10 +102,7 @@ Page({
     const provinceIndex = PROVINCES.indexOf(rec.province);
     const cities = CITIES[rec.province] || [];
     const cityIndex = Math.max(0, cities.indexOf(rec.city));
-    const isOther = String(rec.etype).indexOf('其他') === 0;
-    let etypeNote = '';
-    const noteStart = String(rec.etype).indexOf('（');
-    if (isOther && noteStart > 0) etypeNote = rec.etype.slice(noteStart + 1, rec.etype.length - 1);
+    const etypeInfo = parseEtypes(rec.etype);
     const problems = (rec.problems || []).map((item, index) => {
       const catIndex = CAT_ORDER.indexOf(item.cat);
       const subs = catIndex >= 0 ? PROBLEM_MAP[item.cat] : [];
@@ -99,8 +126,10 @@ Page({
       cities,
       cityIndex,
       company: rec.company,
-      etype: isOther ? '其他' : rec.etype,
-      etypeNote,
+      selectedEtypes: etypeInfo.selected,
+      etypeOptions: buildEtypeOptions(etypeInfo.selected),
+      showEtypeNote: etypeInfo.selected.indexOf('其他') >= 0,
+      etypeNote: etypeInfo.etypeNote,
       industry: rec.industry,
       contact: rec.contact || '',
       phone: rec.phone || '',
@@ -151,7 +180,21 @@ Page({
   },
 
   pickEtype(e) {
-    this.setData({ etype: e.currentTarget.dataset.v, 'err.etype': false });
+    const type = e.currentTarget.dataset.v;
+    let selected = this.data.selectedEtypes.slice();
+    if (selected.indexOf(type) >= 0) {
+      selected = selected.filter((item) => item !== type);
+    } else {
+      if (isPerformanceType(type)) selected = selected.filter((item) => !isPerformanceType(item));
+      selected.push(type);
+    }
+    selected = ETYPES.filter((item) => selected.indexOf(item) >= 0);
+    this.setData({
+      selectedEtypes: selected,
+      etypeOptions: buildEtypeOptions(selected),
+      showEtypeNote: selected.indexOf('其他') >= 0,
+      'err.etype': false
+    });
   },
 
   onNote(e) { this.setData({ etypeNote: e.detail.value }); },
@@ -245,6 +288,19 @@ Page({
     this.setData({ [`problems[${index}].photos`]: photos });
   },
 
+  previewPhoto(e) {
+    const index = Number(e.currentTarget.dataset.index);
+    const photoIndex = Number(e.currentTarget.dataset.photo);
+    const photos = this.data.problems[index].photos || [];
+    const photo = photos[photoIndex];
+    if (!photo || !photo.url) {
+      toast('该图片为示意图，无法预览');
+      return;
+    }
+    const urls = photos.filter((item) => item.url).map((item) => item.url);
+    wx.previewImage({ current: photo.url, urls });
+  },
+
   save() {
     const d = this.data;
     const err = {};
@@ -252,7 +308,7 @@ Page({
     if (d.provinceIndex < 0) { err.province = true; message = message || '请选择省（市、区）'; }
     if (d.provinceIndex >= 0 && !d.cities.length) { err.city = true; message = message || '请选择地市'; }
     if (!(d.company || '').trim()) { err.company = true; message = message || '请输入企业名称'; }
-    if (!d.etype) { err.etype = true; message = message || '请选择企业类型'; }
+    if (!d.selectedEtypes.length) { err.etype = true; message = message || '请选择企业类型'; }
     if (!d.industry) { err.industry = true; message = message || '请选择行业类别'; }
     const ratio = d.cleanRatio === '' ? '' : Number(d.cleanRatio);
     if (ratio !== '' && (ratio < 0 || ratio > 100 || isNaN(ratio))) {
@@ -277,11 +333,13 @@ Page({
         photos: photos.length ? photos : [{ ph: 'ledger', cap: '佐证照片' }]
       };
     }))).then((problems) => {
-      let etype = d.etype;
-      if (etype === '其他' && (d.etypeNote || '').trim()) etype = '其他（' + d.etypeNote.trim() + '）';
+      const etype = d.selectedEtypes.map((type) => {
+        if (type === '其他' && (d.etypeNote || '').trim()) return '其他（' + d.etypeNote.trim() + '）';
+        return type;
+      }).join('、');
       const rec = {
         id: d.editing ? d.id : 'R' + Date.now(),
-        date: d.editing ? d.date : TODAY,
+        date: d.editing ? d.date : getToday(),
         province: PROVINCES[d.provinceIndex],
         city: d.cities[d.cityIndex],
         company: d.company.trim(),

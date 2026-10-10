@@ -23,11 +23,11 @@
           <input class="f-input {{err.company ? 'err' : ''}}" placeholder="请输入企业全称" placeholder-class="placeholder" value="{{company}}" bindinput="onCompany" />
         </view>
         <view class="mt">
-          <text class="f-label">企业类型<text class="req">*</text>（绩效分级 / 超低排放 / 其他）</text>
+          <text class="f-label">企业类型<text class="req">*</text>（可多选，绩效分级限选一项）</text>
           <view class="chips {{err.etype ? 'etype-err' : ''}}">
-            <text class="chip {{etype === item ? 'active' : ''}}" wx:for="{{etypes}}" wx:key="*this" data-v="{{item}}" bindtap="pickEtype">{{item}}</text>
+            <text class="chip {{item.selected ? 'active' : ''}}" wx:for="{{etypeOptions}}" wx:key="value" data-v="{{item.value}}" bindtap="pickEtype">{{item.value}}</text>
           </view>
-          <input wx:if="{{etype === '其他'}}" class="f-input mt" placeholder="请自行填入企业类型说明" placeholder-class="placeholder" value="{{etypeNote}}" bindinput="onNote" />
+          <!-- <input wx:if="{{showEtypeNote}}" class="f-input mt" placeholder="请自行填入企业类型说明" placeholder-class="placeholder" value="{{etypeNote}}" bindinput="onNote" /> -->
         </view>
         <view class="mt">
           <text class="f-label">行业类别<text class="req">*</text>（最新绩效分级行业）</text>
@@ -69,11 +69,11 @@
         <view class="grid-2 mt">
           <view>
             <text class="f-label">产能（万吨）</text>
-            <input class="f-input" placeholder="如 500" placeholder-class="placeholder" value="{{capacity}}" bindinput="onCapacity" />
+            <input class="f-input" type="number" placeholder="如 500" placeholder-class="placeholder" value="{{capacity}}" bindinput="onCapacity" />
           </view>
           <view>
             <text class="f-label">产量（万吨）</text>
-            <input class="f-input" placeholder="如 462" placeholder-class="placeholder" value="{{output}}" bindinput="onOutput" />
+            <input class="f-input" type="number" placeholder="如 462" placeholder-class="placeholder" value="{{output}}" bindinput="onOutput" />
           </view>
         </view>
         <view class="mt">
@@ -131,7 +131,7 @@
           <textarea class="f-input area mt-sm" placeholder="详细说明（自行输入）" placeholder-class="placeholder" value="{{item.desc}}" data-index="{{index}}" bindinput="onDesc" />
           <view class="upload" data-index="{{index}}" bindtap="choosePhoto">拍摄 / 上传附图</view>
           <view class="photos" wx:if="{{item.photos.length}}">
-            <view class="shot" wx:for="{{item.photos}}" wx:for-item="photo" wx:for-index="photoIndex" wx:key="photoIndex">
+            <view class="shot" wx:for="{{item.photos}}" wx:for-item="photo" wx:for-index="photoIndex" wx:key="photoIndex" data-index="{{index}}" data-photo="{{photoIndex}}" bindtap="previewPhoto">
               <image wx:if="{{photo.url}}" src="{{photo.url}}" mode="aspectFill" />
               <view wx:else class="shot-ph">示意图</view>
               <view class="shot-x" data-index="{{index}}" data-photo="{{photoIndex}}" catchtap="removePhoto">×</view>

@@ -2,7 +2,9 @@
   <nav-bar mode="brand" />
   <view class="filter-box">
     <view class="search-wrap">
-      <text class="search-ico">搜</text>
+
+      <text class="search-ico iconfont icon-search"></text>
+
       <input class="f-input search-input" placeholder="搜索日期或企业名称" placeholder-class="placeholder" value="{{keyword}}" bindinput="onSearch" />
     </view>
   </view>
@@ -20,9 +22,9 @@
           </view>
         </view>
         <view class="actions">
-          <view class="act" data-id="{{item.id}}" bindtap="openLog">查看详情</view>
-          <view class="act" data-kind="word" data-date="{{item.date}}" catchtap="exportFile">导出Word</view>
-          <view class="act orange" data-kind="ppt" data-date="{{item.date}}" catchtap="exportFile">导出PPT</view>
+          <view class="act" data-id="{{item.id}}" bindtap="openLog"><text class="iconfont icon-chakan action-icon"></text>查看详情</view>
+          <view class="act" data-kind="word" data-date="{{item.date}}" catchtap="exportFile"><text class="iconfont icon-file-word-fill action-icon"></text>导出Word</view>
+          <view class="act orange" data-kind="ppt" data-date="{{item.date}}" catchtap="exportFile"><text class="iconfont icon-file-ppt-fill action-icon"></text>导出PPT</view>
         </view>
       </view>
     </view>

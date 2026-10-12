@@ -10,7 +10,9 @@
         <view class="card rec" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="openRecord">
           <view class="between">
             <view class="name">{{item.orderLabel}}、{{item.company}}</view>
-            <text class="tag tag-blue">{{item.etype}}</text>
+            <view class="etype-tags">
+              <text class="tag {{etypeTag.tagClass}}" wx:for="{{item.etypeTags}}" wx:for-item="etypeTag" wx:key="text">{{etypeTag.text}}</text>
+            </view>
           </view>
           <view class="meta">
             <text>{{item.province}}·{{item.city}}</text>

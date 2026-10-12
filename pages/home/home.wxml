@@ -12,7 +12,7 @@
 
       <view class="grid-2">
         <view class="btn btn-primary" bindtap="goAdd">＋ 新增督查记录</view>
-        <view class="btn btn-ghost" bindtap="goToday">今日工作日志</view>
+        <view class="btn btn-ghost" bindtap="goToday"><text class="iconfont icon-book today-log-icon"></text>今日工作日志</view>
       </view>
 
       <view class="grid-2">
@@ -47,7 +47,7 @@
       </view>
 
       <view class="card block">
-        <view class="sec-title"><view class="dot-blue"></view>企业类型分布</view>
+        <view class="sec-title"><text class="iconfont icon-hangye home-section-icon industry-icon"></text>企业类型分布</view>
         <view class="bar-row" wx:for="{{etypeBars}}" wx:key="t">
           <text class="bar-label short">{{item.t}}</text>
           <view class="progress"><view class="progress-in" style="width: {{item.width}};"></view></view>
@@ -56,7 +56,7 @@
       </view>
 
       <view class="card block">
-        <view class="sec-title"><view class="dot-red"></view>问题类型分布</view>
+        <view class="sec-title"><text class="iconfont icon-liebiao home-section-icon problem-type-icon"></text>问题类型分布</view>
         <view class="bar-row" wx:for="{{problemBars}}" wx:key="c">
           <text class="bar-label">{{item.t}}</text>
           <view class="progress"><view class="progress-in red" style="width: {{item.width}};"></view></view>
@@ -66,7 +66,7 @@
 
       <view class="card block">
         <view class="between mb">
-          <view class="sec-title">最新督查记录</view>
+          <view class="sec-title"><text class="iconfont icon-zuixin home-section-icon latest-icon"></text>最新督查记录</view>
           <text class="link" bindtap="goRecords">查看全部 ›</text>
         </view>
         <view class="recent" wx:for="{{recent}}" wx:key="id" data-id="{{item.id}}" bindtap="openRecord">
@@ -77,7 +77,7 @@
               <view class="recent-sub">{{item.province}} {{item.city}} · {{item.industry}}</view>
             </view>
           </view>
-          <view class="mt-sm"><text class="tag {{item.problemTag}}">{{item.problemText}}</text></view>
+          <view class="mt-sm"><text class="tag {{item.problemTag}}"><text wx:if="{{item.problems.length > 0}}" class="iconfont icon-jinggao recent-problem-icon"></text>{{item.problemText}}</text></view>
         </view>
       </view>
     </view>

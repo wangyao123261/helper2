@@ -1,4 +1,24 @@
 @import "../../styles/iconfont.wxss";
+.today-log-icon {
+  margin-right: 8rpx;
+  color: #165dff;
+}
+
+.home-section-icon {
+  margin-right: 10rpx;
+  font-size: 28rpx;
+}
+
+.industry-icon { color: #165dff; }
+.problem-type-icon { color: #f53f3f; }
+.latest-icon { color: #9ca3af; }
+
+.recent-problem-icon {
+  margin-right: 6rpx;
+  font-size: 24rpx;
+  vertical-align: middle;
+}
+
 .hello {
   font-size: 34rpx;
   font-weight: 700;

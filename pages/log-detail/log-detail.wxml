@@ -1,9 +1,9 @@
 <view class="screen">
   <nav-bar mode="sub" title="工作日志详情">
-    <view slot="right" class="nav-actions">
+    <!-- <view slot="right" class="nav-actions">
       <text data-kind="word" bindtap="exportFile">Word</text>
       <text data-kind="ppt" bindtap="exportFile">PPT</text>
-    </view>
+    </view> -->
   </nav-bar>
   <scroll-view class="body" scroll-y wx:if="{{log}}">
     <view class="pad stack">

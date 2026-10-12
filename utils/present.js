@@ -1,5 +1,5 @@
 const { ETYPES, CAT_ORDER } = require('./constants');
-const { fmtDate, fmtShort, cnNum, shortCat, etypeTag } = require('./format');
+const { fmtDate, fmtShort, cnNum, shortCat, etypeTag, etypeTags } = require('./format');
 
 function problemText(record) {
   const list = record.problems || [];
@@ -16,6 +16,7 @@ function decorateRecord(record) {
   const ratio = Math.max(0, Math.min(100, Number(record.cleanRatio) || 0));
   return Object.assign({}, record, problem, {
     tagClass: etypeTag(record.etype),
+    etypeTags: etypeTags(record.etype),
     initial: (record.province || '').slice(0, 1),
     location: record.province === record.city ? record.province : `${record.province}·${record.city}`,
     monitorTag: record.monitor === '已安装' ? 'tag-green' : 'tag-red',
@@ -89,6 +90,7 @@ function companyList(records) {
       industry: record.industry,
       etype: record.etype,
       tagClass: etypeTag(record.etype),
+      etypeTags: etypeTags(record.etype),
       count: 0,
       problems: 0,
       latest: '',
@@ -101,6 +103,7 @@ function companyList(records) {
       current.id = record.id;
       current.etype = record.etype;
       current.tagClass = etypeTag(record.etype);
+      current.etypeTags = etypeTags(record.etype);
     }
     map[record.company] = current;
   });

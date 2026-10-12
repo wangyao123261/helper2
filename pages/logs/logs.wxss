@@ -1,3 +1,4 @@
+@import "../../styles/iconfont.wxss";
 .filter-box {
   padding: 24rpx 32rpx 0;
 }
@@ -44,4 +45,9 @@
 
 .act.orange {
   color: #d97706;
+}
+
+.action-icon {
+  margin-right: 8rpx;
+  font-size: 26rpx;
 }

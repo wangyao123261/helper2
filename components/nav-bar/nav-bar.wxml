@@ -1,4 +1,4 @@
-<view class="brand" wx:if="{{mode === 'brand'}}" style="padding-top: {{statusBarHeight}}px;">
+<view class="brand" style="padding-top: {{statusBarHeight}}px;">
   <view class="brand-inner">
     <view class="logo iconfont icon-huoche"></view>
     <view class="brand-text">
@@ -10,13 +10,13 @@
     </view> -->
   </view>
 </view>
-<view class="subnav" wx:else style="padding-top: {{statusBarHeight}}px;">
+<view class="subnav" wx:if="{{mode !== 'brand'}}">
   <view class="sub-inner">
-    <view class="side" style="width: {{sideWidth}}px;" bindtap="onBack">
+    <view class="side" bindtap="onBack">
       <view class="back"></view>
     </view>
     <view class="sub-title">{{title}}</view>
-    <view class="side right" style="width: {{sideWidth}}px; padding-right: {{capsuleGap}}px;">
+    <view class="side right">
       <slot name="right"></slot>
       <text wx:if="{{extra}}" class="extra" bindtap="onExtra">{{extra}}</text>
     </view>

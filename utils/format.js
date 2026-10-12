@@ -30,6 +30,13 @@ function etypeTag(etype) {
   return 'tag-gray';
 }
 
+function etypeTags(etype) {
+  return String(etype || '').split(/[、，,]/).map((text) => text.trim()).filter(Boolean).map((text) => ({
+    text,
+    tagClass: etypeTag(text)
+  }));
+}
+
 function addDays(s, n) {
   const d = new Date(s + 'T00:00:00');
   d.setDate(d.getDate() + n);
@@ -51,6 +58,7 @@ module.exports = {
   cnNum,
   shortCat,
   etypeTag,
+  etypeTags,
   addDays,
   toast
 };

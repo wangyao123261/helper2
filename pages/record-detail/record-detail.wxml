@@ -19,9 +19,9 @@
 
       <view class="card block">
         <view class="sec-title"><text class="iconfont icon-huoche section-icon truck-icon"></text>运输概况</view>
-        <view class="kv"><text class="k">货运大门及通道</text><text class="v">{{record.gates}} 个货运大门 · {{record.channels}} 个货运通道</text></view>
-        <view class="kv"><text class="k">门禁及视频监控</text><text class="v"><text class="tag {{record.monitorTag}}">{{record.monitor}}</text></text></view>
-        <view class="kv"><text class="k">产能 / 产量</text><text class="v">{{record.capacity || '—'}} 万吨 / {{record.output || '—'}} 万吨</text></view>
+        <view class="kv"><text class="k">货运大门及通道</text><text class="v">{{record.gatesText}} 个货运大门 · {{record.channelsText}} 个货运通道</text></view>
+        <view class="kv"><text class="k">门禁及视频监控</text><text class="v"><text wx:if="{{record.monitor}}" class="tag {{record.monitorTag}}">{{record.monitor}}</text><text wx:else>—</text></text></view>
+        <view class="kv"><text class="k">产能 / 产量</text><text class="v">{{record.capacityText}} 万吨 / {{record.outputText}} 万吨</text></view>
         <view class="kv"><text class="k">主要进出厂物料</text><text class="v">{{record.materials || '—'}}</text></view>
         <view class="kv"><text class="k">主要原料来源地</text><text class="v">{{record.matFrom || '—'}}</text></view>
         <view class="kv"><text class="k">主要产品运送地</text><text class="v">{{record.matTo || '—'}}</text></view>
@@ -29,12 +29,12 @@
         <view class="kv">
           <text class="k">清洁运输比例</text>
           <view class="v ratio">
-            <view class="progress"><view class="progress-in" style="width: {{record.cleanWidth}};"></view></view>
-            <text class="ratio-num">{{record.cleanRatio}}%</text>
+            <view class="progress" wx:if="{{record.hasCleanRatio}}"><view class="progress-in" style="width: {{record.cleanWidth}};"></view></view>
+            <text class="ratio-num">{{record.cleanRatioText}}</text>
           </view>
         </view>
         <view class="kv"><text class="k">计算方式</text><text class="v">{{record.calcMethod || '—'}}</text></view>
-        <view class="kv"><text class="k">厂内运输车辆数量</text><text class="v">{{record.vehicles}} 辆</text></view>
+        <view class="kv"><text class="k">厂内运输车辆数量</text><text class="v">{{record.vehiclesText}} 辆</text></view>
         <view class="kv"><text class="k">非道路移动机械</text><text class="v">{{record.machinery || '—'}}</text></view>
       </view>
 

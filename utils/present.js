@@ -11,17 +11,29 @@ function problemText(record) {
   };
 }
 
+function optionalText(value) {
+  return value === '' || value === null || value === undefined ? '—' : String(value);
+}
+
 function decorateRecord(record) {
   const problem = problemText(record);
-  const ratio = Math.max(0, Math.min(100, Number(record.cleanRatio) || 0));
+  const hasRatio = record.cleanRatio !== '' && record.cleanRatio !== null && record.cleanRatio !== undefined;
+  const ratio = hasRatio ? Math.max(0, Math.min(100, Number(record.cleanRatio) || 0)) : 0;
   return Object.assign({}, record, problem, {
     tagClass: etypeTag(record.etype),
     etypeTags: etypeTags(record.etype),
     initial: (record.province || '').slice(0, 1),
     location: record.province === record.city ? record.province : `${record.province}·${record.city}`,
     monitorTag: record.monitor === '已安装' ? 'tag-green' : 'tag-red',
-    monitorText: record.monitor === '已安装' ? '安装有' : '未安装',
-    cleanWidth: ratio + '%',
+    monitorText: optionalText(record.monitor),
+    gatesText: optionalText(record.gates),
+    channelsText: optionalText(record.channels),
+    capacityText: optionalText(record.capacity),
+    outputText: optionalText(record.output),
+    vehiclesText: optionalText(record.vehicles),
+    hasCleanRatio: hasRatio,
+    cleanRatioText: hasRatio ? ratio + '%' : '—',
+    cleanWidth: hasRatio ? ratio + '%' : '0%',
     problemsView: (record.problems || []).map((item, index) => Object.assign({}, item, {
       indexLabel: cnNum(index),
       no: index + 1,

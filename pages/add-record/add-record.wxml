@@ -62,7 +62,7 @@
           <view>
             <text class="f-label">门禁及视频监控</text>
             <picker mode="selector" range="{{monitors}}" value="{{monitorIndex}}" bindchange="onMonitor">
-              <view class="f-input">{{monitors[monitorIndex]}}</view>
+              <view class="f-input {{monitorIndex === 0 ? 'placeholder' : ''}}">{{monitors[monitorIndex]}}</view>
             </picker>
           </view>
         </view>
